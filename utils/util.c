@@ -24,15 +24,15 @@ static const char* read_errors[] = {
 
 void check_read(enum read_status status) {
     if (status != READ_OK)
-        err(read_messages[status]);
+        err(read_errors[status]);
 }
 
 static const char* write_errors[] = {
         [WRITE_HEADER_ERROR] = "Some problems with writing a bmp_header\n",
-        [WRITE_DATA_ERROR] = "Some problems with writing data(pixels) to bmp\n"
+        [WRITE_DATA_ERROR] = "Some problems with writing data(pixels) to bmp\n",
 };
 
 void check_write(enum write_status status) {
     if (status != WRITE_OK)
-        err(write_messages[status]);
+        err(write_errors[status]);
 }

@@ -41,7 +41,7 @@ enum read_status from_bmp(FILE* in, struct image* img);
 enum write_status {
     WRITE_OK = 0,
     WRITE_HEADER_ERROR = 1,
-    WRITE_DATA_ERROR = 1
+    WRITE_DATA_ERROR = 2
 };
 
 enum write_status to_bmp(FILE* out, struct image const* img);

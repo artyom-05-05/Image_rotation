@@ -1,4 +1,4 @@
-CFLAGS=--std=c18 -Wall -pedantic -Isrc/ -ggdb -Wextra -Werror -DDEBUG
+CFLAGS=--std=c11 -Wall -pedantic -Isrc/ -ggdb -Wextra -Werror -DDEBUG
 CC=gcc
 
 all: image_rotation
@@ -23,6 +23,7 @@ main.o: main.c
 
 image_rotation: main.o open_close.o bmp_operations.o image.o rotation.o util.o
 	$(CC) -o image_rotation $^
+	rm -f main.o open_close.o bmp_operations.o image.o rotation.o util.o
 
 clean:
 	rm -f main.o open_close.o bmp_operations.o image.o rotation.o util.o image_rotation

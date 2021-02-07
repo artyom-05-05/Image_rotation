@@ -1,13 +1,5 @@
 #include "bmp_operations.h"
 
-////macros (choose type_identification)
-//#define PRI_SPECIFIER(e) (_Generic( (e), uint16_t : "%" PRIu16, uint32_t: "%" PRIu32, default: "NOT IMPLEMENTED" ))
-//
-//#define PRINT_FIELD( t, name ) \
-//    fprintf( f, "%-17s: ",  # name ); \
-//    fprintf( f, PRI_SPECIFIER( header-> name ) , header-> name );\
-//    fprintf( f, "\n");
-
 #define ID_BMP 0x4D42
 #define SIZE 40
 #define BIT_COUNT 24
@@ -26,7 +18,7 @@ static struct bmp_header create_bmp_header(const struct image* img) {
     h.bfileSize = sizeof(struct bmp_header)  +
             (sizeof(struct pixel) * img->width + get_padding(img->width)) * img->height;
     h.bfReserved = 0;
-    h.bOffBits = sizeof(struct bmp_header);  // ??
+    h.bOffBits = sizeof(struct bmp_header);
     h.biSize = SIZE;
     h.biWidth = img->width;
     h.biHeight = img->height;
